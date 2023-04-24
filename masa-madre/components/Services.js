@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { useState } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Container = styled.div`
   width: 100%;
@@ -12,15 +14,75 @@ const Container = styled.div`
 
 const LeftSection = styled.div`
   flex: 1;
-  background-color: red;
 `;
 
 const Carousel = styled.div`
   width: 100%;
   height: 100%;
   min-height: 400px;
-  position: relative;
   min-width: 320px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CarouselItem = styled.div`
+  width: 100%;
+
+  &.hide {
+    display: none;
+  }
+
+  &.show {
+    display: block;
+  }
+`;
+
+const CarouselBtns = styled.div`
+  display: flex;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  gap: 2px;
+`;
+
+const Prev = styled.button`
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(355, 355, 355, 0.2);
+  border: none;
+  width: 40px;
+  color: #fff;
+  transition: all 0.2s linear;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(355, 355, 355, 0.4);
+  }
+`;
+
+const Next = styled.button`
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(355, 355, 355, 0.2);
+  border: none;
+  width: 40px;
+  color: #fff;
+  transition: all 0.2s linear;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(355, 355, 355, 0.4);
+  }
 `;
 
 const RightSection = styled.div`
@@ -46,17 +108,67 @@ const SectionText = styled.div`
 `;
 
 const Services = () => {
+  const carouselImages = [
+    {
+      id: 0,
+      path: "/images/foodtruck.jpg",
+    },
+    {
+      id: 1,
+      path: "/images/foodtruck2.jpg",
+    },
+    {
+      id: 2,
+      path: "/images/foodtruck3.jpg",
+    },
+  ];
+
+  const slidesLength = carouselImages.length;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex(currentIndex === slidesLength - 1 ? 0 : currentIndex + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(currentIndex === 0 ? slidesLength - 1 : currentIndex - 1);
+  };
+
+  if (!Array.isArray(carouselImages) || slidesLength <= 0) {
+    return null;
+  }
+
   return (
     <>
       <Container>
         <LeftSection>
           <Carousel>
-            <Image
-              alt="foodtruck image"
-              fill
-              src="/images/foodtruck.jpg"
-              style={{ objectFit: "cover" }}
-            />
+            {carouselImages.map((item, idx) => {
+              return (
+                <CarouselItem
+                  key={idx}
+                  className={
+                    carouselImages[currentIndex].id === idx ? "show" : "hide"
+                  }
+                >
+                  <Image
+                    alt="foodtruck image"
+                    fill
+                    src={item.path}
+                    style={{ objectFit: "cover" }}
+                  />
+                </CarouselItem>
+              );
+            })}
+            <CarouselBtns>
+              <Prev onClick={prevSlide}>
+                <BsChevronLeft />
+              </Prev>
+              <Next onClick={nextSlide}>
+                <BsChevronRight />
+              </Next>
+            </CarouselBtns>
           </Carousel>
         </LeftSection>
         <RightSection>
