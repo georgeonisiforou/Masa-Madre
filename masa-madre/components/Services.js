@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useState } from "react";
@@ -30,13 +30,15 @@ const Carousel = styled.div`
 
 const CarouselItem = styled.div`
   width: 100%;
+  transition: all 0.3s ease;
 
   &.hide {
-    display: none;
+    opacity: 0;
+    /* transform: translate(100%); */
   }
 
   &.show {
-    display: block;
+    opacity: 1;
   }
 `;
 
@@ -126,6 +128,11 @@ const Services = () => {
   const slidesLength = carouselImages.length;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => nextSlide(), 4000);
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
 
   const nextSlide = () => {
     setCurrentIndex(currentIndex === slidesLength - 1 ? 0 : currentIndex + 1);
