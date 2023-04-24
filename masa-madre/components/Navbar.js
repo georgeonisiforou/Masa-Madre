@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  width: 150px;
+  width: 250px;
   height: 50px;
 
   display: flex;
@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <>
       <Container>
-        <LogoContainer>Masa Madre</LogoContainer>
+        <LogoContainer>MASA MADRE</LogoContainer>
       </Container>
     </>
   );

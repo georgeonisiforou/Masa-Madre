@@ -1,8 +1,16 @@
 :root {
+  /* --bg-color: #ad8b73;
+  --text-color: #fffbe9;
+  --comp-color: #ceab93;
+  --accent-color: #e3caa5; */
+
+  --accent-color: #9b0d12;
+  --bg-color: #1c1c1c;
+  --comp-color: #24502f;
+  --text-color: #cccce4;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,8 +22,9 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: black;
-  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
 }
 
 a {

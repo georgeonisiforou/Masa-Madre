@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Hero from "@/components/Hero";
 import Layout from "@/components/Layout";
 import Menu from "@/components/Menu";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Layout />
         <Hero />
         <Menu />
+        <Services />
       </>
     </>
   );
