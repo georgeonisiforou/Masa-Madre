@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 32px;
+  margin: 0;
+  flex-wrap: wrap-reverse;
 `;
 
-const LeftSection = styled.div`
+const RightSection = styled.div`
   flex: 1;
 `;
 
@@ -47,7 +47,7 @@ const CarouselBtns = styled.div`
   height: 40px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   gap: 2px;
 `;
 
@@ -87,7 +87,7 @@ const Next = styled.button`
   }
 `;
 
-const RightSection = styled.div`
+const LeftSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -109,7 +109,7 @@ const SectionText = styled.div`
   font-size: clamp(16px, 2vw, 32px);
 `;
 
-const Services = () => {
+const Sourdough = () => {
   const carouselImages = [
     {
       id: 0,
@@ -145,11 +145,22 @@ const Services = () => {
   if (!Array.isArray(carouselImages) || slidesLength <= 0) {
     return null;
   }
-
   return (
     <>
       <Container>
         <LeftSection>
+          <SectionTitle>Simplicity is tasty</SectionTitle>
+          <SectionText>
+            Our pizzas are cooked in Artisan built wood fired ovens from Naples,
+            and our Pizzaioli take pride in adhering to the traditional
+            Napoletana process in production of the dough, to produce the Verace
+            pizza. Our pizza dough is proofed for over 24 hours. The long
+            proofing time together with cooking at an intense heat of 500oC
+            produces a moist, light, soft, digestible crust which is aromatic
+            and delicious.
+          </SectionText>
+        </LeftSection>
+        <RightSection>
           <Carousel>
             {carouselImages.map((item, idx) => {
               return (
@@ -177,17 +188,10 @@ const Services = () => {
               </Next>
             </CarouselBtns>
           </Carousel>
-        </LeftSection>
-        <RightSection>
-          <SectionTitle>Something for everyone</SectionTitle>
-          <SectionText>
-            Whether it’s a family affair, a couples retreat, food with friends
-            or a solo trip, MASA MADRE has you covered.
-          </SectionText>
         </RightSection>
       </Container>
     </>
   );
 };
 
-export default Services;
+export default Sourdough;

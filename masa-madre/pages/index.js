@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Layout from "@/components/Layout";
 import Menu from "@/components/Menu";
 import Services from "@/components/Services";
+import Sourdough from "@/components/Sourdough";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <Hero />
           <Menu />
           <Services />
+          <Sourdough />
         </Layout>
       </>
     </>
