@@ -18,6 +18,7 @@ const ImageContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 
   /* -o-background-size: cover;
   -moz-background-size: cover;
