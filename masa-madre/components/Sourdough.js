@@ -9,7 +9,11 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   margin: 0;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+  background: url("/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const RightSection = styled.div`
@@ -96,6 +100,10 @@ const LeftSection = styled.div`
   gap: 16px;
   /* padding: 16px; */
   min-width: 300px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const SectionTitle = styled.div`

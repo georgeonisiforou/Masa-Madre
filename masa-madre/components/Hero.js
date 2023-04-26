@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  width: 100vw;
+
   height: 100vh;
   position: relative;
   justify-content: center;
@@ -32,13 +32,14 @@ const TextContent = styled.div`
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;
   text-align: center;
-  line-height: 56px;
+  /* line-height: 56px; */
   color: var(--comp-color);
   z-index: 2;
   position: absolute;
   border: 5px solid var(--accent-color);
   border-radius: 5px;
   padding: 16px;
+  font-weight: 600;
 `;
 
 const Hero = () => {

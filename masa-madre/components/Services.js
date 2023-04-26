@@ -8,8 +8,12 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 32px;
+  flex-wrap: wrap-reverse;
+
+  background: url("/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const LeftSection = styled.div`
@@ -96,6 +100,10 @@ const RightSection = styled.div`
   gap: 16px;
   /* padding: 16px; */
   min-width: 300px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const SectionTitle = styled.div`
@@ -105,6 +113,9 @@ const SectionTitle = styled.div`
 `;
 
 const SectionText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: clamp(300px, 50%, 500px);
   font-size: clamp(16px, 2vw, 32px);
 `;

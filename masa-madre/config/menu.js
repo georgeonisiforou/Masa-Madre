@@ -13,7 +13,7 @@ export const menu = [
     ingredients: "Tomato sugo with mozzarella, fresh basil and evoo",
     description: "",
     image: "",
-    spicy: false,
+    spicy: true,
     vegan: true,
     price: "8.50",
   },

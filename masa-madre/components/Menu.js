@@ -1,225 +1,146 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import { BiLeaf } from "react-icons/bi";
-import { GiChiliPepper } from "react-icons/gi";
 import { menu } from "@/config/menu";
+import Image from "next/image";
+import { FaLeaf } from "react-icons/fa";
+import { GiChiliPepper } from "react-icons/gi";
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: url("/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Title = styled.div`
+  font-size: clamp(20px, 3vw, 48px);
+  padding: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 32px;
+`;
 
 const Container = styled.div`
   width: 100%;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 32px;
+  gap: 16px;
 `;
 
-const CardContainer = styled.div`
-  width: 800px;
-  height: 400px;
-  position: relative;
-  border: 1px solid red;
-  display: flex;
-`;
-
-const LeftSection = styled.div`
-  width: 400px;
-  height: 100%;
-  position: relative;
-`;
-
-const CardImage = styled.div`
+const PizzaCard = styled.div`
+  /* flex: 1; */
+  height: 350px;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  min-width: 300px;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
   overflow: hidden;
-  position: relative;
+  border: 1px solid rgba(355, 355, 355, 0.2);
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    max-height: 800px;
+  }
+
+  @media (max-width: 700px) {
+    height: 600px;
+  }
 `;
 
-const IngredientsContainer = styled.div`
-  width: 300px;
-  font-size: 24px;
+const PizzaImage = styled.div`
+  position: relative;
+  flex: 1;
+  height: 100%;
+  max-height: 300px;
+  min-width: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+`;
+
+const PizzaIngredients = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+  height: 100%;
+  min-width: 250px;
+  padding: 16px 0;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+`;
+
+const IngredientsText = styled.div`
+  max-width: 20ch;
 `;
 
 const PizzaName = styled.div`
-  position: absolute;
-  border-radius: 15px;
-  padding: 16px;
+  font-size: 24px;
+`;
+
+const PizzaIcons = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  left: 25%;
-  top: -50px;
-  z-index: 5;
-  /* background-color: var(--comp-color); */
+  gap: 16px;
 `;
 
-const Price = styled.div`
-  padding: 16px;
-  font-size: 32px;
-  border-radius: 50%;
-  z-index: 5;
-  position: absolute;
-  top: 10px;
-  left: -40px;
-  background-color: var(--comp-color);
-  transform: rotateZ(-45deg);
+const Vegan = styled(FaLeaf)`
+  width: 30px;
+  height: 30px;
+  color: green;
 `;
 
-const IconsContainer = styled.div``;
-
-// const MenuItemContainer = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-bottom: 32px;
-//   gap: 16px;
-//   /* height: clamp(300px, 300px, 700px); */
-//   width: 100%;
-//   align-items: center;
-//   border-radius: 5px;
-//   color: var(--text-color);
-//   /* overflow: hidden; */
-//   position: relative;
-
-//   &::after {
-//     content: "";
-//     width: 100%;
-//     height: 2px;
-//     background-color: var(--accent-color);
-//     position: absolute;
-//     bottom: -15px;
-//     left: 0;
-//   }
-// `;
-
-// const ImageContainer = styled.div`
-//   height: 250px;
-//   min-width: 250px;
-//   position: relative;
-//   flex: 1;
-// `;
-
-// const Ingredients = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   text-align: right;
-//   height: 250px;
-//   flex: 1;
-//   gap: 16px;
-//   flex-direction: column;
-//   font-family: inherit;
-//   font-size: clamp(16px, 2vw, 24px);
-//   padding: 16px;
-//   min-width: 200px;
-//   color: var(--text-color);
-// `;
-
-// const Text = styled.div`
-//   width: 100%;
-// `;
-
-// const PizzaName = styled.p`
-//   font-size: clamp(20px, 2vw, 32px);
-//   text-transform: uppercase;
-// `;
-
-// const Price = styled.div`
-//   padding: 10px;
-//   color: var(--comp-color);
-//   font-weight: 600;
-//   font-size: 20px;
-//   background-color: var(--text-color);
-//   border-radius: 3px;
-// `;
-
-// const PriceAndIcons = styled.div`
-//   display: flex;
-//   align-items: center;
-//   gap: 32px;
-//   width: 100%;
-//   justify-content: flex-end;
-// `;
-
-// const Icons = styled.div`
-//   display: flex;
-//   border-radius: 15px;
-//   padding: 10px;
-// `;
-
-// const Vegan = styled(BiLeaf)`
-//   width: 25px;
-//   height: 25px;
-//   color: green;
-// `;
-
-// const Spicy = styled(GiChiliPepper)`
-//   width: 25px;
-//   height: 25px;
-//   color: red;
-// `;
-
-// const MenuTitle = styled.div`
-//   font-size: 48px;
-//   color: var(--text-color);
-//   margin: 32px 0;
-// `;
+const Spicy = styled(GiChiliPepper)`
+  width: 30px;
+  height: 30px;
+  color: red;
+`;
 
 const Menu = () => {
   return (
     <>
-      <Container>
-        <CardContainer>
-          <LeftSection>
-            <PizzaName>Margherita</PizzaName>
-            <Price>$9.90</Price>
-            <CardImage>
-              <Image
-                alt="pizza"
-                src="/images/pizza.jpg"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </CardImage>
-          </LeftSection>
-
-          <IngredientsContainer>
-            Tomato sugo with capers, olives, anchovies, mozzarella, garlic and
-            evoo
-          </IngredientsContainer>
-        </CardContainer>
-        {/* <MenuContainer>
-          <MenuTitle>Menu</MenuTitle>
-          {menu.map((pizzaItem, idx) => {
+      <MainContainer>
+        <Title>Our pizzas</Title>
+        <Container>
+          {menu.map((item, idx) => {
             return (
-              <MenuItemContainer key={idx}>
-                <ImageContainer>
+              <PizzaCard key={idx}>
+                <PizzaImage>
                   <Image
                     alt="pizza"
                     src="/images/pizza.jpg"
                     fill
                     style={{ objectFit: "cover" }}
                   />
-                </ImageContainer>
-                <Ingredients>
-                  <PizzaName>{pizzaItem.name}</PizzaName>
-                  <Text>{pizzaItem.ingredients}</Text>
-                  <PriceAndIcons>
-                    <Icons>
-                      {pizzaItem.spicy == true ? <Spicy /> : null}
-                      {pizzaItem.vegan == true ? <Vegan /> : null}
-                    </Icons>
-                    <Price>${pizzaItem.price}</Price>
-                  </PriceAndIcons>
-                </Ingredients>
-              </MenuItemContainer>
+                </PizzaImage>
+                <PizzaIngredients>
+                  <PizzaName>{item.name}</PizzaName>
+                  <IngredientsText>{item.ingredients}</IngredientsText>
+
+                  <PizzaIcons>
+                    {item.spicy ? <Spicy /> : null}
+                    {item.vegan ? <Vegan /> : null}
+                  </PizzaIcons>
+                </PizzaIngredients>
+              </PizzaCard>
             );
           })}
-        </MenuContainer> */}
-      </Container>
+        </Container>
+      </MainContainer>
     </>
   );
 };

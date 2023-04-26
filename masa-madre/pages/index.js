@@ -21,6 +21,7 @@ export default function Home() {
         <Layout>
           <Hero />
           <Menu />
+
           <DoughVideo />
           <Services />
           <Sourdough />
