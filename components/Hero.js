@@ -19,6 +19,9 @@ const ImageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   filter: grayscale(100%);
   display: flex;
   justify-content: center;
