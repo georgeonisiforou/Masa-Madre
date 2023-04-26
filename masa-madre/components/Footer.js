@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram, AiOutlineFacebook } from "react-icons/ai";
 import Link from "next/link";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoTimeSharp } from "react-icons/io5";
@@ -24,19 +24,23 @@ const ContainerInner = styled.div`
   align-items: center;
 `;
 
-const SocialContainer = styled(Link)`
+const SocialContainer = styled.div`
   display: flex;
-  transition: all 0.2s linear;
-
-  &:hover {
-    color: var(--accent-color);
-  }
+  gap: 10px;
 `;
 
 const InstaIcon = styled(AiOutlineInstagram)`
-  color: black;
+  color: #000;
   width: 25px;
   height: 25px;
+  transition: all 0.3s ease;
+`;
+
+const FbIcon = styled(AiOutlineFacebook)`
+  color: #000;
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s ease;
 `;
 
 const CopyrightSection = styled.div``;
@@ -78,15 +82,43 @@ const TimeIcon = styled(IoTimeSharp)`
 const IconContainer = styled.div`
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
 `;
 
+const InstaContainer = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:hover ${InstaIcon} {
+    color: #f2003c;
+  }
+`;
+
+const FbContainer = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:hover ${FbIcon} {
+    color: #3b5998;
+  }
+`;
+
 const CustomLink = styled(Link)`
-  color: var(--accent-color);
+  color: greenyellow;
   position: relative;
 
   &:hover {
@@ -101,7 +133,7 @@ const CustomLink = styled(Link)`
     bottom: -5px;
     left: 0;
     height: 1px;
-    background-color: var(--accent-color);
+    background-color: greenyellow;
     width: 100%;
     transform: scale(0);
     transform-origin: center;
@@ -134,9 +166,16 @@ const Footer = () => {
             </ContactDetails>
           </ConnectSection>
           <SocialContainer href="/">
-            <IconContainer>
-              <InstaIcon />
-            </IconContainer>
+            <Link href="/">
+              <InstaContainer>
+                <InstaIcon />
+              </InstaContainer>
+            </Link>
+            <Link href="/">
+              <FbContainer>
+                <FbIcon />
+              </FbContainer>
+            </Link>
           </SocialContainer>
         </ContainerInner>
         <CopyrightSection>{`Copyright © ${currentDate}`}</CopyrightSection>

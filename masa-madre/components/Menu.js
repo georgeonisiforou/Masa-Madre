@@ -34,63 +34,36 @@ const Container = styled.div`
   gap: 16px;
 `;
 
-const PizzaCard = styled.div`
-  /* flex: 1; */
-  height: 350px;
+const PizzaCardOverlay = styled.div`
   width: 100%;
-  min-width: 300px;
-  max-width: 600px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(355, 355, 355, 0.2);
-  border-radius: 5px;
-
-  @media (max-width: 768px) {
-    max-height: 800px;
-  }
-
-  @media (max-width: 700px) {
-    height: 600px;
-  }
-`;
-
-const PizzaImage = styled.div`
-  position: relative;
-  flex: 1;
   height: 100%;
-  max-height: 300px;
-  min-width: 250px;
-  border-radius: 5px;
-  overflow: hidden;
-`;
-
-const PizzaIngredients = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex: 1;
-  height: 100%;
-  min-width: 250px;
-  padding: 16px 0;
-  text-align: right;
-
-  @media (max-width: 768px) {
-    height: 200px;
-  }
-`;
-
-const IngredientsText = styled.div`
-  max-width: 20ch;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
 `;
 
 const PizzaName = styled.div`
   font-size: 24px;
+  font-weight: 600;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 100%;
+    max-width: 180px;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    transform: scale(0);
+    transform-origin: right;
+    transition: all 0.3s ease;
+  }
 `;
 
 const PizzaIcons = styled.div`
@@ -110,6 +83,79 @@ const Spicy = styled(GiChiliPepper)`
   color: red;
 `;
 
+const PizzaCard = styled.div`
+  /* flex: 1; */
+  height: 350px;
+  width: 100%;
+  min-width: 300px;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(355, 355, 355, 0.2);
+  border-radius: 5px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-height: 800px;
+  }
+
+  @media (max-width: 700px) {
+    height: 600px;
+  }
+
+  &:hover ${PizzaCardOverlay} {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover ${PizzaName} {
+    &::after {
+      transform: scale(1);
+    }
+  }
+`;
+
+const Price = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+const PizzaImage = styled.div`
+  position: relative;
+  flex: 1;
+  height: 100%;
+  max-height: 300px;
+  min-width: 280px;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 3;
+`;
+
+const PizzaIngredients = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+  height: 100%;
+  min-width: 270px;
+  padding: 16px 0;
+  text-align: right;
+  z-index: 3;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+`;
+
+const IngredientsText = styled.div`
+  max-width: 20ch;
+`;
+
 const Menu = () => {
   return (
     <>
@@ -119,6 +165,7 @@ const Menu = () => {
           {menu.map((item, idx) => {
             return (
               <PizzaCard key={idx}>
+                <PizzaCardOverlay />
                 <PizzaImage>
                   <Image
                     alt="pizza"
@@ -135,6 +182,7 @@ const Menu = () => {
                     {item.spicy ? <Spicy /> : null}
                     {item.vegan ? <Vegan /> : null}
                   </PizzaIcons>
+                  <Price>{`$ ${item.price}`}</Price>
                 </PizzaIngredients>
               </PizzaCard>
             );

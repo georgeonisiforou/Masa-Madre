@@ -32,9 +32,13 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   color: var(--text-color);
-  font-size: 24px;
+  font-size: clamp(16px, 2vw, 32px);
   z-index: 3;
   padding: 16px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Overlay = styled.div`
