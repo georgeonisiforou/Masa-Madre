@@ -58,7 +58,7 @@ const DoughVideo = () => {
         <VideoContainer>
           <Content>Our pizza dough is proofed for over 24 hours.</Content>
           <Overlay />
-          <video src="/videos/dough.mp4" autoPlay muted loop />
+          <video src="/videos/dough.mp4" autoPlay playsInline muted loop />
         </VideoContainer>
       </Container>
     </>
