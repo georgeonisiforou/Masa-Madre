@@ -137,6 +137,7 @@ const PizzaImage = styled.div`
 
 const PizzaIngredients = styled.div`
   display: flex;
+  gap: 16px;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
@@ -154,6 +155,10 @@ const PizzaIngredients = styled.div`
 
 const IngredientsText = styled.div`
   max-width: 20ch;
+
+  @media (max-width: 768px) {
+    max-width: 40ch;
+  }
 `;
 
 const Menu = () => {
@@ -173,8 +178,8 @@ const Menu = () => {
                     fill
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 768px) 100vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
+                    (max-width: 1200px) 100vw,
+                    100vw"
                   />
                 </PizzaImage>
                 <PizzaIngredients>

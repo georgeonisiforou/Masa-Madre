@@ -18,10 +18,16 @@ const Container = styled.div`
 
 const ContainerInner = styled.div`
   display: flex;
-  max-width: 1140px;
-  width: 800px;
-  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 16px;
+
+  /* @media (max-width: 768px) {
+    width: 300px;
+  } */
 `;
 
 const SocialContainer = styled.div`
@@ -43,11 +49,21 @@ const FbIcon = styled(AiOutlineFacebook)`
   transition: all 0.3s ease;
 `;
 
-const CopyrightSection = styled.div``;
+const CopyrightSection = styled.div`
+  margin-bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+`;
 
 const MainSection = styled.div`
   display: flex;
   gap: 16px;
+
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const OpeningTimes = styled.div`
@@ -58,7 +74,7 @@ const OpeningTimes = styled.div`
 
 const ConnectSection = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
 `;
@@ -179,7 +195,7 @@ const Footer = () => {
           </SocialContainer>
         </ContainerInner>
         <CopyrightSection>{`Copyright © ${currentDate}`}</CopyrightSection>
-        <div>
+        <div style={{ textAlign: "center" }}>
           Designed & Developed by{" "}
           <CustomLink href="https://www.georgeonisiforou.com/" target="_blank">
             George Onisiforou
