@@ -34,7 +34,10 @@ const Carousel = styled.div`
 
 const CarouselItem = styled.div`
   width: 100%;
+  height: 100%;
   transition: all 0.3s ease;
+  /* position: relative; */
+  position: absolute;
 
   &.hide {
     opacity: 0;
@@ -183,6 +186,9 @@ const Sourdough = () => {
                     fill
                     src={item.path}
                     style={{ objectFit: "cover" }}
+                    sizes="(max-width: 768px) 100vw,
+                    (max-width: 1200px) 50vw,
+                    33vw"
                   />
                 </CarouselItem>
               );
