@@ -181,7 +181,7 @@ const Footer = () => {
         <CopyrightSection>{`Copyright © ${currentDate}`}</CopyrightSection>
         <div>
           Designed & Developed by{" "}
-          <CustomLink href="www.georgeonisiforou.com">
+          <CustomLink href="https://www.georgeonisiforou.com/" target="_blank">
             George Onisiforou
           </CustomLink>
         </div>
