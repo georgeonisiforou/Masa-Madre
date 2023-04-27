@@ -51,11 +51,45 @@ const Overlay = styled.div`
   z-index: 2;
 `;
 
+const FadeBottom = styled.div`
+  width: 100%;
+  height: 250px;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(30, 30, 30, 0.61),
+    var(--bg-color)
+  );
+
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+`;
+
+const FadeTop = styled.div`
+  width: 100%;
+  height: 250px;
+  background-image: linear-gradient(
+    360deg,
+    transparent,
+    rgba(30, 30, 30, 0.61),
+    var(--bg-color)
+  );
+
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+`;
+
 const DoughVideo = () => {
   return (
     <>
       <Container>
         <VideoContainer>
+          <FadeBottom />
+          <FadeTop />
           <Content>Our pizza dough is proofed for over 24 hours.</Content>
           <Overlay />
           <video src="/videos/dough.mp4" autoPlay playsInline muted loop />

@@ -41,10 +41,27 @@ const TextContent = styled.div`
   font-weight: 600;
 `;
 
+const FadeBottom = styled.div`
+  width: 100%;
+  height: 250px;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(30, 30, 30, 0.61),
+    var(--bg-color)
+  );
+
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+`;
+
 const Hero = () => {
   return (
     <>
       <Container>
+        <FadeBottom />
         <ImageContainer></ImageContainer>
         <TextContent>Authentic Sourdough Pizza</TextContent>
       </Container>

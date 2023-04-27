@@ -7,6 +7,7 @@ import Menu from "@/components/Menu";
 import Services from "@/components/Services";
 import Sourdough from "@/components/Sourdough";
 import DoughVideo from "@/components/DoughVideo";
+import Introduction from "@/components/Introduction";
 
 export default function Home() {
   return (
@@ -21,8 +22,8 @@ export default function Home() {
         <Layout>
           <Hero />
           <Menu />
-
           <DoughVideo />
+          <Introduction />
           <Services />
           <Sourdough />
         </Layout>

@@ -4,6 +4,7 @@ import { AiOutlineInstagram, AiOutlineFacebook } from "react-icons/ai";
 import Link from "next/link";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoTimeSharp } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
@@ -24,10 +25,6 @@ const ContainerInner = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding: 16px;
-
-  /* @media (max-width: 768px) {
-    width: 300px;
-  } */
 `;
 
 const SocialContainer = styled.div`
@@ -61,6 +58,7 @@ const CopyrightSection = styled.div`
 const MainSection = styled.div`
   display: flex;
   gap: 16px;
+  min-width: 220px;
 
   justify-content: space-between;
   align-items: center;
@@ -77,6 +75,7 @@ const ConnectSection = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  min-width: 220px;
 `;
 
 const ContactDetails = styled.div`

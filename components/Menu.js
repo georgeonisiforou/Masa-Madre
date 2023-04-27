@@ -1,17 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { menu } from "@/config/menu";
 import Image from "next/image";
 import { FaLeaf } from "react-icons/fa";
 import { GiChiliPepper } from "react-icons/gi";
+import { motion } from "framer-motion";
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: url("/images/background.jpg");
+  /* background: url("/images/background.jpg");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   justify-content: center;
   align-items: center;
 `;
@@ -26,10 +27,9 @@ const Title = styled.div`
 
 const Container = styled.div`
   width: 100%;
-
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   padding: 32px;
   gap: 16px;
 `;
@@ -83,8 +83,86 @@ const Spicy = styled(GiChiliPepper)`
   color: red;
 `;
 
+const shine = keyframes`
+0%{
+  background-image: linear-gradient(
+      65deg,
+      rgba(250, 250, 250, 0.5),
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.8),
+      rgba(34, 34, 34, 0.6),
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.9),
+      rgba(34, 34, 34, 0.6),
+      rgba(250, 250, 250, 0.3),
+      rgba(34, 34, 34, 0.8)
+    );
+}
+25%{
+  background-image: linear-gradient(
+      65deg,
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.8),
+      rgba(250, 250, 250, 0.5),
+      rgba(34, 34, 34, 0.6),
+      
+      rgba(37, 37, 37, 0.9),
+      rgba(250, 250, 250, 0.3),
+      rgba(34, 34, 34, 0.6),
+      rgba(34, 34, 34, 0.8),
+      
+      rgba(34, 34, 34, 0.8)
+    );
+}
+50%{
+  background-image: linear-gradient(
+      65deg,
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.8),
+      rgba(34, 34, 34, 0.6),
+      rgba(250, 250, 250, 0.5),
+      rgba(37, 37, 37, 0.9),
+      rgba(34, 34, 34, 0.6),
+      rgba(34, 34, 34, 0.8),
+      rgba(250, 250, 250, 0.3),
+      rgba(34, 34, 34, 0.8)
+    );
+}
+75%{
+  background-image: linear-gradient(
+      65deg,
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.8),
+      rgba(34, 34, 34, 0.6),
+      
+      rgba(37, 37, 37, 0.9),
+      rgba(34, 34, 34, 0.6),
+      rgba(250, 250, 250, 0.5),
+      rgba(34, 34, 34, 0.8),
+      
+      rgba(34, 34, 34, 0.8),
+      rgba(250, 250, 250, 0.3),
+    );
+}
+100%{
+  background-image: linear-gradient(
+      65deg,
+      rgba(34, 34, 34, 0.8),
+      rgba(37, 37, 37, 0.8),
+      rgba(34, 34, 34, 0.6),
+      
+      rgba(37, 37, 37, 0.9),
+      rgba(34, 34, 34, 0.6),
+      rgba(34, 34, 34, 0.8),
+     
+      rgba(34, 34, 34, 0.8)
+    );
+}
+`;
+
 const PizzaCard = styled.div`
   /* flex: 1; */
+
   height: 350px;
   width: 100%;
   min-width: 300px;
@@ -96,7 +174,7 @@ const PizzaCard = styled.div`
   gap: 16px;
   padding: 16px;
   overflow: hidden;
-  border: 1px solid rgba(355, 355, 355, 0.2);
+  border: 1px solid rgba(37, 37, 37, 0.5);
   border-radius: 5px;
   position: relative;
 
@@ -106,10 +184,6 @@ const PizzaCard = styled.div`
 
   @media (max-width: 700px) {
     height: 600px;
-  }
-
-  &:hover ${PizzaCardOverlay} {
-    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &:hover ${PizzaName} {
@@ -169,7 +243,15 @@ const Menu = () => {
         <Container>
           {menu.map((item, idx) => {
             return (
-              <PizzaCard key={idx}>
+              <PizzaCard
+                key={idx}
+                as={motion.div}
+                whileHover={{
+                  scale: 1.02,
+                  backgroundColor: "rgba(37,37,37,0.2)",
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                 <PizzaCardOverlay />
                 <PizzaImage>
                   <Image

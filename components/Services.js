@@ -10,10 +10,10 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
 
-  background: url("/images/background.jpg");
+  /* background: url("/images/background.jpg");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 `;
 
 const LeftSection = styled.div`
@@ -101,7 +101,6 @@ const RightSection = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* padding: 16px; */
   min-width: 300px;
 
   @media (max-width: 768px) {
