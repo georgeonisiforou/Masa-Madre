@@ -15,6 +15,7 @@ const Container = styled.div`
   align-items: center;
   background-color: var(--bg-color);
   padding: 32px;
+  font-family: "Poppins", sans-serif;
 `;
 
 const ContainerInner = styled.div`

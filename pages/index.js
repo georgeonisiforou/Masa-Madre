@@ -8,8 +8,10 @@ import Services from "@/components/Services";
 import Sourdough from "@/components/Sourdough";
 import DoughVideo from "@/components/DoughVideo";
 import Introduction from "@/components/Introduction";
+import CurrentLocation from "@/components/CurrentLocation";
 
-export default function Home() {
+export default function Home({ locationData }) {
+  console.log(locationData);
   return (
     <>
       <Head>
@@ -21,6 +23,9 @@ export default function Home() {
       <>
         <Layout>
           <Hero />
+          {locationData.length === 0 ? null : (
+            <CurrentLocation locationData={locationData} />
+          )}
           <Menu />
           <DoughVideo />
           <Introduction />
@@ -30,4 +35,25 @@ export default function Home() {
       </>
     </>
   );
+}
+
+const client = createClient({
+  projectId: "f1rf47lg",
+  dataset: "production",
+  apiVersion: "2022-03-25",
+  useCdn: false,
+});
+
+import { createClient } from "next-sanity";
+
+export async function getStaticProps() {
+  const locationData = await client.fetch(
+    `*[_type=="location"]{address, "imageUrl": locationPhoto.asset->url, geolocation, content, openTime, closeTime}`
+  );
+
+  return {
+    props: {
+      locationData,
+    },
+  };
 }
