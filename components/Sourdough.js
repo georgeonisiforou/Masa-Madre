@@ -15,6 +15,8 @@ const Container = styled.div`
 
 const RightSection = styled.div`
   flex: 1;
+  display: flex;
+  min-height: 400px;
 `;
 
 const Carousel = styled.div`
