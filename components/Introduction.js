@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useWindowSize } from "@/util/hooks/useWindowSize";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
@@ -12,7 +13,7 @@ const Container = styled.div`
 `;
 
 const LeftSection = styled.div`
-  font-size: clamp(16px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 32px);
   flex: 1;
   display: flex;
   justify-content: center;
@@ -21,11 +22,16 @@ const LeftSection = styled.div`
 
   @media (max-width: 768px) {
     margin: 32px 0;
+    text-align: center;
   }
 `;
 
 const TextContent = styled.div`
   max-width: 30ch;
+
+  @media (max-width: 768px) {
+    padding: 48px 0;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -92,7 +98,13 @@ const Introduction = () => {
   return (
     <>
       <Container>
-        <LeftSection>
+        <LeftSection
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           <TextContent>
             Our pizzas are cooked in Artisan built wood fired ovens from Naples,
             and our Pizzaioli take pride in adhering to the traditional

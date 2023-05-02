@@ -9,10 +9,6 @@ import { motion } from "framer-motion";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* background: url("/images/background.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
   justify-content: center;
   align-items: center;
 `;
@@ -23,6 +19,7 @@ const Title = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 32px;
+  font-family: "Poppins", sans-serif;
 `;
 
 const Container = styled.div`
@@ -31,7 +28,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 32px;
-  gap: 16px;
+  gap: 32px;
 `;
 
 const PizzaCardOverlay = styled.div`
@@ -46,7 +43,7 @@ const PizzaCardOverlay = styled.div`
 `;
 
 const PizzaName = styled.div`
-  font-size: 24px;
+  font-size: clamp(20px, 2vw, 32px);
   font-weight: 600;
   position: relative;
 
@@ -83,86 +80,8 @@ const Spicy = styled(GiChiliPepper)`
   color: red;
 `;
 
-const shine = keyframes`
-0%{
-  background-image: linear-gradient(
-      65deg,
-      rgba(250, 250, 250, 0.5),
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.8),
-      rgba(34, 34, 34, 0.6),
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.9),
-      rgba(34, 34, 34, 0.6),
-      rgba(250, 250, 250, 0.3),
-      rgba(34, 34, 34, 0.8)
-    );
-}
-25%{
-  background-image: linear-gradient(
-      65deg,
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.8),
-      rgba(250, 250, 250, 0.5),
-      rgba(34, 34, 34, 0.6),
-      
-      rgba(37, 37, 37, 0.9),
-      rgba(250, 250, 250, 0.3),
-      rgba(34, 34, 34, 0.6),
-      rgba(34, 34, 34, 0.8),
-      
-      rgba(34, 34, 34, 0.8)
-    );
-}
-50%{
-  background-image: linear-gradient(
-      65deg,
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.8),
-      rgba(34, 34, 34, 0.6),
-      rgba(250, 250, 250, 0.5),
-      rgba(37, 37, 37, 0.9),
-      rgba(34, 34, 34, 0.6),
-      rgba(34, 34, 34, 0.8),
-      rgba(250, 250, 250, 0.3),
-      rgba(34, 34, 34, 0.8)
-    );
-}
-75%{
-  background-image: linear-gradient(
-      65deg,
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.8),
-      rgba(34, 34, 34, 0.6),
-      
-      rgba(37, 37, 37, 0.9),
-      rgba(34, 34, 34, 0.6),
-      rgba(250, 250, 250, 0.5),
-      rgba(34, 34, 34, 0.8),
-      
-      rgba(34, 34, 34, 0.8),
-      rgba(250, 250, 250, 0.3),
-    );
-}
-100%{
-  background-image: linear-gradient(
-      65deg,
-      rgba(34, 34, 34, 0.8),
-      rgba(37, 37, 37, 0.8),
-      rgba(34, 34, 34, 0.6),
-      
-      rgba(37, 37, 37, 0.9),
-      rgba(34, 34, 34, 0.6),
-      rgba(34, 34, 34, 0.8),
-     
-      rgba(34, 34, 34, 0.8)
-    );
-}
-`;
-
 const PizzaCard = styled.div`
   /* flex: 1; */
-
   height: 350px;
   width: 100%;
   min-width: 300px;
@@ -177,6 +96,7 @@ const PizzaCard = styled.div`
   border: 1px solid rgba(37, 37, 37, 0.5);
   border-radius: 5px;
   position: relative;
+  font-family: "Merriweather", serif;
 
   @media (max-width: 768px) {
     max-height: 800px;
@@ -194,8 +114,12 @@ const PizzaCard = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: 24px;
+  font-size: clamp(20px, 2vw, 28px);
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(355, 355, 355, 0.1);
+  border-radius: 5px;
+  padding: 5px;
 `;
 
 const PizzaImage = styled.div`
@@ -221,6 +145,7 @@ const PizzaIngredients = styled.div`
   padding: 16px 0;
   text-align: right;
   z-index: 3;
+  font-size: clamp(20px, 2vw, 24px);
 
   @media (max-width: 768px) {
     height: 200px;
@@ -239,7 +164,7 @@ const Menu = () => {
   return (
     <>
       <MainContainer>
-        <Title>Our pizzas</Title>
+        <Title>MENU</Title>
         <Container>
           {menu.map((item, idx) => {
             return (
@@ -247,7 +172,7 @@ const Menu = () => {
                 key={idx}
                 as={motion.div}
                 whileHover={{
-                  scale: 1.02,
+                  scale: 1.01,
                   backgroundColor: "rgba(37,37,37,0.2)",
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -272,7 +197,7 @@ const Menu = () => {
                     {item.spicy ? <Spicy /> : null}
                     {item.vegan ? <Vegan /> : null}
                   </PizzaIcons>
-                  <Price>{`$ ${item.price}`}</Price>
+                  <Price>{`€ ${item.price}`}</Price>
                 </PizzaIngredients>
               </PizzaCard>
             );

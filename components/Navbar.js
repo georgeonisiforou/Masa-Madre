@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <>
       <Container>
-        <LogoContainer>MASA MADRE</LogoContainer>
+        <LogoContainer>MASA MADRE Pizza</LogoContainer>
       </Container>
     </>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
+import { FaArrowDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
-
   height: 100vh;
   position: relative;
   justify-content: center;
@@ -25,17 +26,35 @@ const ImageContainer = styled.div`
   z-index: 1;
 `;
 
+const ScrollDownContainer = styled.div`
+  width: 60px;
+  height: 80px;
+  position: absolute;
+  bottom: 200px;
+  margin: 0 auto;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+`;
+
+const ScrollDown = styled(FaArrowDown)`
+  width: 100%;
+  height: 100%;
+`;
+
 const TextContent = styled.div`
   text-transform: uppercase;
   background-color: rgba(204, 204, 228, 0.3);
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;
   text-align: center;
-  /* line-height: 56px; */
-  color: var(--comp-color);
+  color: rgba(37, 37, 37, 0.9);
   z-index: 2;
   position: absolute;
-  border: 5px solid var(--accent-color);
+  text-shadow: rgba(37, 37, 37, 1) 5px 0 10px;
+
   border-radius: 5px;
   padding: 16px;
   font-weight: 600;
@@ -61,6 +80,21 @@ const Hero = () => {
   return (
     <>
       <Container>
+        <ScrollDownContainer
+          as={motion.div}
+          animate={{ y: 100, opacity: 1 }}
+          transition={{
+            delay: 2,
+            repeat: Infinity,
+            duration: 2,
+            repeatType: "loop",
+            repeatDelay: 1,
+            type: "spring",
+            bounce: 0.75,
+          }}
+        >
+          <ScrollDown />
+        </ScrollDownContainer>
         <FadeBottom />
         <ImageContainer></ImageContainer>
         <TextContent>Authentic Sourdough Pizza</TextContent>

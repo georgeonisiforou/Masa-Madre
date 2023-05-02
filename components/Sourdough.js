@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
@@ -10,10 +11,6 @@ const Container = styled.div`
   display: flex;
   margin: 0;
   flex-wrap: wrap;
-  /* background: url("/images/background.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
 `;
 
 const RightSection = styled.div`
@@ -36,12 +33,10 @@ const CarouselItem = styled.div`
   width: 100%;
   height: 100%;
   transition: all 0.3s ease;
-  /* position: relative; */
   position: absolute;
 
   &.hide {
     opacity: 0;
-    /* transform: translate(100%); */
   }
 
   &.show {
@@ -101,23 +96,23 @@ const LeftSection = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* padding: 16px; */
   min-width: 300px;
 
   @media (max-width: 768px) {
     text-align: center;
+    padding: 48px 0;
   }
 `;
 
 const SectionTitle = styled.div`
-  font-size: clamp(20px, 3vw, 48px);
+  font-size: clamp(24px, 3vw, 48px);
   width: clamp(300px, 50%, 500px);
   text-transform: uppercase;
 `;
 
 const SectionText = styled.div`
   width: clamp(300px, 50%, 500px);
-  font-size: clamp(16px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 32px);
 `;
 
 const Sourdough = () => {
@@ -159,7 +154,13 @@ const Sourdough = () => {
   return (
     <>
       <Container>
-        <LeftSection>
+        <LeftSection
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           <SectionTitle>Simplicity is tasty</SectionTitle>
           <SectionText>
             Our pizzas are cooked in Artisan built wood fired ovens from Naples,

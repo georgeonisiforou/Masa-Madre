@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
@@ -49,12 +50,14 @@ const Address = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 16px;
+  font-size: clamp(16px, 2vw, 24px);
   max-width: 40ch;
   text-align: center;
 `;
 
-const WorkingTimes = styled.div``;
+const WorkingTimes = styled.div`
+  font-size: clamp(16px, 2vw, 24px);
+`;
 
 const CurrentLocation = ({ locationData }) => {
   const openDateTime = locationData[0].openTime;
@@ -90,8 +93,6 @@ const CurrentLocation = ({ locationData }) => {
     },
   };
 
-  console.log(locationData[0].content);
-
   return (
     <>
       <Container>
@@ -105,7 +106,13 @@ const CurrentLocation = ({ locationData }) => {
             />
           </ImageContainer>
         </LeftSection>
-        <RightSection>
+        <RightSection
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           <Today>📍Today&apos;s location!</Today>
           <Address>{locationData[0].address}</Address>
           <Description>
