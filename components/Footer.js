@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -16,6 +16,7 @@ const Container = styled.div`
   background-color: var(--bg-color);
   padding: 32px;
   font-family: "Poppins", sans-serif;
+  margin-top: 16px;
 `;
 
 const ContainerInner = styled.div`
