@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
+import { SiGooglemaps } from "react-icons/si";
+import { BsPinMap } from "react-icons/bs";
+import { GiFoodTruck } from "react-icons/gi";
 
 const Container = styled.div`
   width: 100%;
@@ -45,8 +48,10 @@ const RightSection = styled.div`
 
 const Today = styled.div`
   font-size: clamp(24px, 3vw, 48px);
-
   position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 
   &::after {
     content: "";
@@ -76,6 +81,10 @@ const WorkingTimes = styled.div`
   font-size: clamp(16px, 2vw, 24px);
 `;
 
+const GoogleMapsIcon = styled(SiGooglemaps)`
+  transition: all 0.3s ease;
+`;
+
 const GoogleMap = styled.div`
   font-size: clamp(16px, 2vw, 24px);
   position: relative;
@@ -84,7 +93,19 @@ const GoogleMap = styled.div`
   background-color: rgba(37, 37, 37, 0.8);
   border-radius: 8px;
   padding: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover ${GoogleMapsIcon} {
+    scale: 1.1;
+    color: var(--accent-color);
+  }
 `;
+
+const PinIcon = styled(BsPinMap)``;
+
+const FoodTruckIcon = styled(GiFoodTruck)``;
 
 const TitleLine = styled.div`
   width: 700px;
@@ -148,10 +169,16 @@ const CurrentLocation = ({ locationData }) => {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <Today>📍Today&apos;s location!</Today>
+          <Today>
+            <PinIcon />
+            TODAY&apos;S LOCATION
+          </Today>
 
           <Address>{locationData[0].address}</Address>
-          <GoogleMap>Google Maps</GoogleMap>
+          <GoogleMap>
+            <GoogleMapsIcon />
+            Google Maps
+          </GoogleMap>
           <Description>
             <PortableText
               value={locationData[0].content}

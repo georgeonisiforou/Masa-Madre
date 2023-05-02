@@ -4,6 +4,7 @@ import { menu } from "@/config/menu";
 import Image from "next/image";
 import { FaLeaf } from "react-icons/fa";
 import { GiChiliPepper } from "react-icons/gi";
+import { CiPizza } from "react-icons/ci";
 import { motion } from "framer-motion";
 
 const MainContainer = styled.div`
@@ -11,16 +12,23 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 64px;
 `;
 
 const Title = styled.div`
-  font-size: clamp(20px, 3vw, 48px);
+  font-size: clamp(24px, 3vw, 48px);
   padding: 16px;
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 32px;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
 `;
+
+const SliceIcon = styled(CiPizza)``;
 
 const Container = styled.div`
   width: 100%;
@@ -164,7 +172,9 @@ const Menu = () => {
   return (
     <>
       <MainContainer>
-        <Title>MENU</Title>
+        <Title>
+          MENU <SliceIcon />
+        </Title>
         <Container>
           {menu.map((item, idx) => {
             return (
