@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   margin: 0;
+  margin-bottom: 64px;
   flex-wrap: wrap;
 `;
 
