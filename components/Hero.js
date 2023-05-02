@@ -37,6 +37,11 @@ const ScrollDownContainer = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 60px;
+  }
 `;
 
 const ScrollDown = styled(FaArrowDown)`
