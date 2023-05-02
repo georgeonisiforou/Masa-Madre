@@ -10,8 +10,11 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   margin: 0;
-  margin-bottom: 64px;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    margin-bottom: 100px;
+  }
 `;
 
 const RightSection = styled.div`
