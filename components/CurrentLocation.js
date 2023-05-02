@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { SiGooglemaps } from "react-icons/si";
 import { BsPinMap } from "react-icons/bs";
 import { GiFoodTruck } from "react-icons/gi";
+import { IoTimeOutline, IoCalendarOutline } from "react-icons/io5";
 
 const Container = styled.div`
   width: 100%;
@@ -79,7 +80,15 @@ const Description = styled.div`
 
 const WorkingTimes = styled.div`
   font-size: clamp(16px, 2vw, 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 `;
+
+const ClockIcon = styled(IoTimeOutline)``;
+
+const CalendarIcon = styled(IoCalendarOutline)``;
 
 const GoogleMapsIcon = styled(SiGooglemaps)`
   transition: all 0.3s ease;
@@ -185,8 +194,14 @@ const CurrentLocation = ({ locationData }) => {
               components={myPortableTextComponents}
             />
           </Description>
-          <WorkingTimes>{openDate}</WorkingTimes>
-          <WorkingTimes>{`🕐 From ${openTime} to ${closeTime}`}</WorkingTimes>
+          <WorkingTimes>
+            <CalendarIcon />
+            {openDate}
+          </WorkingTimes>
+          <WorkingTimes>
+            <ClockIcon />
+            {`From ${openTime} to ${closeTime}`}
+          </WorkingTimes>
         </RightSection>
       </Container>
     </>
