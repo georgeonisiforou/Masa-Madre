@@ -32,6 +32,7 @@ const ContainerInner = styled.div`
 const SocialContainer = styled.div`
   display: flex;
   gap: 10px;
+  min-height: 80px;
 `;
 
 const InstaIcon = styled(AiOutlineInstagram)`
@@ -51,6 +52,7 @@ const FbIcon = styled(AiOutlineFacebook)`
 const CopyrightSection = styled.div`
   margin-bottom: 16px;
   width: 100%;
+  min-height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +63,7 @@ const MainSection = styled.div`
   display: flex;
   gap: 16px;
   min-width: 220px;
-
+  min-height: 80px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -78,6 +80,7 @@ const ConnectSection = styled.div`
   align-items: center;
   gap: 16px;
   min-width: 220px;
+  min-height: 80px;
 `;
 
 const ContactDetails = styled.div`
