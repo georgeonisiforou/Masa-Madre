@@ -12,7 +12,6 @@ import { createClient } from "next-sanity";
 import CurrentlyClosed from "@/components/CurrentlyClosed";
 
 export default function Home({ locationData }) {
-  console.log(locationData);
   return (
     <>
       <Head>
@@ -41,8 +40,8 @@ export default function Home({ locationData }) {
 }
 
 const client = createClient({
-  projectId: "f1rf47lg",
-  dataset: "production",
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
   apiVersion: "2022-03-25",
   useCdn: true,
 });
