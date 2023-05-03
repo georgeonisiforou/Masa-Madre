@@ -52,7 +52,7 @@ const PizzaCardOverlay = styled.div`
 `;
 
 const PizzaName = styled.div`
-  font-size: clamp(20px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 28px);
   font-weight: 600;
   position: relative;
 
@@ -99,8 +99,8 @@ const PizzaCard = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
-  padding: 16px;
+  /* gap: 16px; */
+  padding: 16px 16px 32px 16px;
   overflow: hidden;
   border: 1px solid rgba(37, 37, 37, 0.5);
   border-radius: 5px;
