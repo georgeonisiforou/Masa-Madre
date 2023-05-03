@@ -10,6 +10,7 @@ import Introduction from "@/components/Introduction";
 import CurrentLocation from "@/components/CurrentLocation";
 import { createClient } from "next-sanity";
 import CurrentlyClosed from "@/components/CurrentlyClosed";
+import BlockSection from "@/components/BlockSection";
 
 export default function Home({ locationData }) {
   return (
@@ -30,6 +31,7 @@ export default function Home({ locationData }) {
           )}
           <Menu />
           <DoughVideo />
+          <BlockSection />
           <Introduction />
           <Services />
           <Sourdough />

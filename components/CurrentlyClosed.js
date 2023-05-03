@@ -12,6 +12,7 @@ const Container = styled.div`
   margin-bottom: 64px;
   flex-wrap: wrap-reverse;
   font-family: "Poppins", sans-serif;
+  background-color: var(--comp-color);
 `;
 
 const LeftSection = styled.div`

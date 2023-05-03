@@ -26,6 +26,13 @@ const ImageContainer = styled.div`
   z-index: 1;
 `;
 
+const OverLay = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 37, 37, 0.3);
+  z-index: 1;
+`;
+
 const ScrollDownContainer = styled.div`
   width: 60px;
   height: 80px;
@@ -51,14 +58,15 @@ const ScrollDown = styled(FaArrowDown)`
 
 const TextContent = styled.div`
   text-transform: uppercase;
-  background-color: rgba(255, 211, 105, 0.2);
+  background-color: rgba(255, 211, 105, 0.1);
+  border: 5px solid var(--accent-color);
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;
   text-align: center;
   color: var(--text-color);
   z-index: 2;
   position: absolute;
-  text-shadow: var(--accent-color) 1px 0 5px;
+  /* text-shadow: var(--accent-color) 1px 0 5px; */
 
   border-radius: 5px;
   padding: 16px;
@@ -72,7 +80,7 @@ const FadeBottom = styled.div`
     180deg,
     transparent,
     rgba(34, 40, 49, 0.61),
-    var(--bg-color)
+    var(--comp-color)
   );
 
   z-index: 2;
@@ -101,7 +109,9 @@ const Hero = () => {
           <ScrollDown />
         </ScrollDownContainer>
         <FadeBottom />
-        <ImageContainer></ImageContainer>
+        <ImageContainer>
+          <OverLay />
+        </ImageContainer>
         <TextContent>Authentic Sourdough Pizza</TextContent>
       </Container>
     </>

@@ -116,9 +116,9 @@ const Introduction = () => {
           </TextContent>
         </LeftSection>
         <ImageContainer>
-          {width > 768 ? <Fade /> : null}
-          <FadeBottom />
-          <FadeTop />
+          {/* {width > 768 ? <Fade /> : null} */}
+          {/* <FadeBottom />
+          <FadeTop /> */}
           <Image
             alt="cooking pizza"
             src="/images/introBg.jpg"

@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-wrap: wrap-reverse;
+  background-color: var(--comp-color);
 `;
 
 const LeftSection = styled.div`

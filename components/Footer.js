@@ -13,10 +13,9 @@ const Container = styled.div`
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-color);
+  background-color: var(--comp-color);
   padding: 32px;
   font-family: "Poppins", sans-serif;
-  margin-top: 16px;
 `;
 
 const ContainerInner = styled.div`

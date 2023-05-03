@@ -126,9 +126,10 @@ const Price = styled.div`
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  background-color: rgba(355, 355, 355, 0.1);
+  background-color: var(--accent-color);
   border-radius: 5px;
   padding: 5px;
+  color: var(--comp-color);
 `;
 
 const PizzaImage = styled.div`

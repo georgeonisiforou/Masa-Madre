@@ -14,10 +14,12 @@ const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-top: 64px;
-  margin-bottom: 64px;
+  /* margin-top: 64px;
+  margin-bottom: 64px; */
   flex-wrap: wrap-reverse;
   font-family: "Poppins", sans-serif;
+  background-color: var(--comp-color);
+  /* padding: 32px 0; */
 `;
 
 const LeftSection = styled.div`
