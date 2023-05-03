@@ -102,7 +102,7 @@ const GoogleMap = styled.div`
   position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
-  background-color: var(--comp-color);
+  background-color: var(--bg-color);
   border-radius: 8px;
   padding: 8px;
   display: flex;
