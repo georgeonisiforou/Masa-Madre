@@ -12,6 +12,7 @@ import { createClient } from "next-sanity";
 import CurrentlyClosed from "@/components/CurrentlyClosed";
 
 export default function Home({ locationData }) {
+  console.log(locationData);
   return (
     <>
       <Head>
