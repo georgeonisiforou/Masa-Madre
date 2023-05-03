@@ -7,6 +7,7 @@ import { SiGooglemaps } from "react-icons/si";
 import { BsPinMap } from "react-icons/bs";
 import { GiFoodTruck } from "react-icons/gi";
 import { IoTimeOutline, IoCalendarOutline } from "react-icons/io5";
+import Link from "next/link";
 
 const Container = styled.div`
   width: 100%;
@@ -114,6 +115,10 @@ const GoogleMap = styled.div`
 
 const PinIcon = styled(BsPinMap)``;
 
+const MapsLink = styled(Link)`
+  color: lightgoldenrodyellow;
+`;
+
 const FoodTruckIcon = styled(GiFoodTruck)``;
 
 const TitleLine = styled.div`
@@ -173,8 +178,8 @@ const CurrentLocation = ({ locationData }) => {
         </LeftSection>
         <RightSection
           as={motion.div}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 1 }}
         >
@@ -186,7 +191,10 @@ const CurrentLocation = ({ locationData }) => {
           <Address>{locationData[0].address}</Address>
           <GoogleMap>
             <GoogleMapsIcon />
-            Google Maps
+            Google Maps{" "}
+            <MapsLink href={locationData[0].googleMapsUrl} target="_blank">
+              {locationData[0].googleMapsUrl}
+            </MapsLink>
           </GoogleMap>
           <Description>
             <PortableText

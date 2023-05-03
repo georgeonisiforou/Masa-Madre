@@ -193,8 +193,8 @@ const Services = () => {
         </LeftSection>
         <RightSection
           as={motion.div}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 1 }}
         >

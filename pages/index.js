@@ -10,7 +10,6 @@ import Introduction from "@/components/Introduction";
 import CurrentLocation from "@/components/CurrentLocation";
 
 export default function Home({ locationData }) {
-  console.log(locationData);
   return (
     <>
       <Head>
@@ -22,7 +21,9 @@ export default function Home({ locationData }) {
       <>
         <Layout>
           <Hero />
-          {locationData.length === 0 ? null : (
+          {locationData.length === 0 ? (
+            <CurrentlyClosed />
+          ) : (
             <CurrentLocation locationData={locationData} />
           )}
           <Menu />
@@ -44,10 +45,11 @@ const client = createClient({
 });
 
 import { createClient } from "next-sanity";
+import CurrentlyClosed from "@/components/CurrentlyClosed";
 
 export async function getStaticProps() {
   const locationData = await client.fetch(
-    `*[_type=="location"]{address, "imageUrl": locationPhoto.asset->url, geolocation, content, openTime, closeTime}`
+    `*[_type=="location"]{address, "imageUrl": locationPhoto.asset->url, googleMapsUrl, content, openTime, closeTime}`
   );
 
   return {
