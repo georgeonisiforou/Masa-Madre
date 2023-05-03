@@ -106,6 +106,7 @@ const GoogleMap = styled.div`
   display: flex;
   justify-content: center;
   gap: 8px;
+  flex-wrap: wrap;
 
   &:hover ${GoogleMapsIcon} {
     scale: 1.1;
@@ -116,7 +117,8 @@ const GoogleMap = styled.div`
 const PinIcon = styled(BsPinMap)``;
 
 const MapsLink = styled(Link)`
-  color: lightgoldenrodyellow;
+  color: var(--accent-color);
+  min-width: 280px;
 `;
 
 const FoodTruckIcon = styled(GiFoodTruck)``;
