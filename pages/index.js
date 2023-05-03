@@ -41,8 +41,8 @@ export default function Home({ locationData }) {
 }
 
 const client = createClient({
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_DATASET,
+  projectId: "f1rf47lg",
+  dataset: "production",
   apiVersion: "2022-03-25",
   useCdn: true,
 });
