@@ -51,14 +51,14 @@ const ScrollDown = styled(FaArrowDown)`
 
 const TextContent = styled.div`
   text-transform: uppercase;
-  background-color: rgba(204, 204, 228, 0.3);
+  background-color: rgba(255, 211, 105, 0.2);
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;
   text-align: center;
-  color: rgba(37, 37, 37, 0.9);
+  color: var(--text-color);
   z-index: 2;
   position: absolute;
-  text-shadow: rgba(37, 37, 37, 1) 5px 0 10px;
+  text-shadow: var(--accent-color) 1px 0 5px;
 
   border-radius: 5px;
   padding: 16px;
@@ -71,7 +71,7 @@ const FadeBottom = styled.div`
   background-image: linear-gradient(
     180deg,
     transparent,
-    rgba(30, 30, 30, 0.61),
+    rgba(34, 40, 49, 0.61),
     var(--bg-color)
   );
 

@@ -73,7 +73,7 @@ const FadeTop = styled.div`
   background-image: linear-gradient(
     360deg,
     transparent,
-    rgba(30, 30, 30, 0.61),
+    rgba(34, 40, 49, 0.61),
     var(--bg-color)
   );
 
@@ -88,8 +88,8 @@ const DoughVideo = () => {
     <>
       <Container>
         <VideoContainer>
-          <FadeBottom />
-          <FadeTop />
+          {/* <FadeBottom />
+          <FadeTop /> */}
           <Content>Our pizza dough is proofed for over 24 hours.</Content>
           <Overlay />
           <video src="/videos/dough.mp4" autoPlay playsInline muted loop />

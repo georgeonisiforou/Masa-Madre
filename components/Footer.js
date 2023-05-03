@@ -134,7 +134,7 @@ const FbContainer = styled.div`
 `;
 
 const CustomLink = styled(Link)`
-  color: greenyellow;
+  color: var(--accent-color);
   position: relative;
 
   &:hover {
@@ -149,7 +149,7 @@ const CustomLink = styled(Link)`
     bottom: -5px;
     left: 0;
     height: 1px;
-    background-color: greenyellow;
+    background-color: var(--accent-color);
     width: 100%;
     transform: scale(0);
     transform-origin: center;

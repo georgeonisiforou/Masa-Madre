@@ -42,7 +42,8 @@ const Container = styled.div`
 const PizzaCardOverlay = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  /* background: rgba(0, 0, 0, 0.2); */
+  background-color: var(--comp-color);
   z-index: 2;
   position: absolute;
   top: 0;
