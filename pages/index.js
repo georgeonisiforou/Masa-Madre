@@ -52,6 +52,7 @@ export async function getStaticProps() {
   );
 
   return {
+    revalidate: 60,
     props: {
       locationData,
     },
