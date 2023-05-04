@@ -17,7 +17,6 @@ const Container = styled.div`
   /* margin-top: 64px;
   margin-bottom: 64px; */
   flex-wrap: wrap-reverse;
-  font-family: "Poppins", sans-serif;
   background-color: var(--comp-color);
   /* padding: 32px 0; */
 `;
@@ -102,13 +101,20 @@ const GoogleMap = styled.div`
   position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
-  background-color: var(--bg-color);
+  background-color: var(--extra-color);
   border-radius: 8px;
   padding: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  min-height: 50px;
+
+  &:hover {
+    background-color: transparent;
+    border: 3px solid var(--extra-color);
+  }
 
   &:hover ${GoogleMapsIcon} {
     scale: 1.1;
@@ -119,7 +125,7 @@ const GoogleMap = styled.div`
 const PinIcon = styled(BsPinMap)``;
 
 const MapsLink = styled(Link)`
-  color: var(--accent-color);
+  color: var(--text-color);
   min-width: 280px;
 `;
 

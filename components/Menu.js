@@ -21,7 +21,6 @@ const Title = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 32px;
-  font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -43,7 +42,7 @@ const PizzaCardOverlay = styled.div`
   width: 100%;
   height: 100%;
   /* background: rgba(0, 0, 0, 0.2); */
-  background-color: var(--comp-color);
+  background-color: var(--accent-color);
   z-index: 2;
   position: absolute;
   top: 0;
@@ -53,7 +52,7 @@ const PizzaCardOverlay = styled.div`
 
 const PizzaName = styled.div`
   font-size: clamp(20px, 2vw, 28px);
-  font-weight: 600;
+  font-weight: 500;
   position: relative;
 
   &::after {
@@ -63,9 +62,9 @@ const PizzaName = styled.div`
     right: 0;
     width: 100%;
     max-width: 180px;
-    height: 2px;
+    height: 3px;
     border-radius: 5px;
-    background-color: var(--accent-color);
+    background-color: var(--comp-color);
     transform: scale(0);
     transform-origin: right;
     transition: all 0.3s ease;
@@ -106,12 +105,11 @@ const PizzaCard = styled.div`
   gap: 16px;
   padding: 16px 16px 32px 16px;
   overflow: hidden;
-  border: 1px solid rgba(37, 37, 37, 0.5);
+  /* border: 1px solid rgba(37, 37, 37, 0.5); */
   border-radius: 5px;
   position: relative;
-  font-family: "Merriweather", serif;
-  box-shadow: 5px 5px 8px rgba(10, 10, 10, 0.6),
-    -5px 0px 8px rgba(10, 10, 10, 0.6);
+  box-shadow: 1px 1px 5px rgba(10, 10, 10, 0.6),
+    -1px 0px 5px rgba(10, 10, 10, 0.6);
 
   @media (max-width: 768px) {
     max-height: 800px;
@@ -130,9 +128,8 @@ const PizzaCard = styled.div`
 
 const Price = styled.div`
   font-size: clamp(20px, 2vw, 25px);
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  background-color: rgba(48, 53, 62, 1);
+  font-weight: 500;
+  background-color: var(--extra-color);
   border-radius: 5px;
   padding: 8px;
   color: var(--text-color);
@@ -140,6 +137,7 @@ const Price = styled.div`
   bottom: 16px;
   right: 16px;
   z-index: 2;
+  border: 2px solid var(--comp-color);
 `;
 
 const PizzaImage = styled.div`
@@ -165,7 +163,7 @@ const PizzaIngredients = styled.div`
   padding: 16px 0;
   text-align: right;
   z-index: 3;
-  font-size: clamp(20px, 2vw, 24px);
+  font-size: clamp(16px, 2vw, 20px);
 
   @media (max-width: 768px) {
     height: 200px;

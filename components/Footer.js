@@ -13,9 +13,8 @@ const Container = styled.div`
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: var(--comp-color);
+  background-color: var(--accent-color);
   padding: 32px;
-  font-family: "Poppins", sans-serif;
 `;
 
 const ContainerInner = styled.div`
@@ -133,13 +132,18 @@ const FbContainer = styled.div`
 `;
 
 const CustomLink = styled(Link)`
-  color: var(--accent-color);
+  color: var(--text-color);
+  background-color: var(--extra-color);
+  padding: 8px;
+  border-radius: 5px;
   position: relative;
 
   &:hover {
-    &::after {
+    /* &::after {
       transform: scale(1);
-    }
+    } */
+
+    background-color: var(--comp-color);
   }
 
   &::after {
@@ -154,6 +158,14 @@ const CustomLink = styled(Link)`
     transform-origin: center;
     transition: all 0.3s ease;
   }
+`;
+
+const Developed = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 `;
 
 const Footer = () => {
@@ -194,12 +206,12 @@ const Footer = () => {
           </SocialContainer>
         </ContainerInner>
         <CopyrightSection>{`Copyright © ${currentDate}`}</CopyrightSection>
-        <div style={{ textAlign: "center" }}>
+        <Developed style={{ textAlign: "center" }}>
           Designed & Developed by{" "}
           <CustomLink href="https://www.georgeonisiforou.com/" target="_blank">
             George Onisiforou
           </CustomLink>
-        </div>
+        </Developed>
       </Container>
     </>
   );

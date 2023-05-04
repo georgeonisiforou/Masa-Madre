@@ -54,6 +54,7 @@ const ScrollDownContainer = styled.div`
 const ScrollDown = styled(FaArrowDown)`
   width: 100%;
   height: 100%;
+  color: var(--accent-color);
 `;
 
 const TextContent = styled.div`
@@ -63,7 +64,7 @@ const TextContent = styled.div`
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;
   text-align: center;
-  color: var(--text-color);
+  color: var(--bg-color);
   z-index: 2;
   position: absolute;
   /* text-shadow: var(--accent-color) 1px 0 5px; */

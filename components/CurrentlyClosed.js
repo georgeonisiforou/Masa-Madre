@@ -11,7 +11,6 @@ const Container = styled.div`
   /* margin-top: 64px;
   margin-bottom: 64px; */
   flex-wrap: wrap-reverse;
-  font-family: "Poppins", sans-serif;
   background-color: var(--comp-color);
   padding: 64px 0;
 `;

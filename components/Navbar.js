@@ -7,9 +7,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: var(--comp-color);
   opacity: 0.5;
-  color: white;
+  color: var(--text-color);
   position: fixed;
   z-index: 5;
   top: 0;
@@ -19,7 +19,6 @@ const Container = styled.div`
 const LogoContainer = styled.div`
   width: 250px;
   height: 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
