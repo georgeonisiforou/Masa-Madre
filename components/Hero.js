@@ -58,7 +58,7 @@ const ScrollDown = styled(FaArrowDown)`
 
 const TextContent = styled.div`
   text-transform: uppercase;
-  background-color: rgba(255, 211, 105, 0.1);
+  background-color: rgba(255, 211, 105, 0.05);
   border: 5px solid var(--accent-color);
   font-size: clamp(16px, 3vw, 56px);
   max-width: 500px;

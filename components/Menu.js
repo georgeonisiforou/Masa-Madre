@@ -69,6 +69,10 @@ const PizzaName = styled.div`
     transform: scale(0);
     transform-origin: right;
     transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      transform: scale(1);
+    }
   }
 `;
 
@@ -78,14 +82,14 @@ const PizzaIcons = styled.div`
 `;
 
 const Vegan = styled(FaLeaf)`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   color: green;
 `;
 
 const Spicy = styled(GiChiliPepper)`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   color: red;
 `;
 
@@ -97,15 +101,17 @@ const PizzaCard = styled.div`
   max-width: 600px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  /* gap: 16px; */
+  gap: 16px;
   padding: 16px 16px 32px 16px;
   overflow: hidden;
   border: 1px solid rgba(37, 37, 37, 0.5);
   border-radius: 5px;
   position: relative;
   font-family: "Merriweather", serif;
+  box-shadow: 5px 5px 8px rgba(10, 10, 10, 0.6),
+    -5px 0px 8px rgba(10, 10, 10, 0.6);
 
   @media (max-width: 768px) {
     max-height: 800px;
@@ -123,13 +129,17 @@ const PizzaCard = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(20px, 2vw, 25px);
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  background-color: var(--accent-color);
+  background-color: rgba(48, 53, 62, 1);
   border-radius: 5px;
-  padding: 5px;
-  color: var(--comp-color);
+  padding: 8px;
+  color: var(--text-color);
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
 `;
 
 const PizzaImage = styled.div`
@@ -150,7 +160,7 @@ const PizzaIngredients = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   flex: 1;
-  height: 100%;
+  height: 80%;
   min-width: 270px;
   padding: 16px 0;
   text-align: right;
@@ -209,8 +219,8 @@ const Menu = () => {
                     {item.spicy ? <Spicy /> : null}
                     {item.vegan ? <Vegan /> : null}
                   </PizzaIcons>
-                  <Price>{`€ ${item.price}`}</Price>
                 </PizzaIngredients>
+                <Price>{`€ ${item.price}`}</Price>
               </PizzaCard>
             );
           })}

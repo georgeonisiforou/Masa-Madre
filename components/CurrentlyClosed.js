@@ -45,7 +45,7 @@ const RightSection = styled.div`
 `;
 
 const Closed = styled.div`
-  font-size: clamp(24px, 3vw, 48px);
+  font-size: clamp(28px, 3vw, 56px);
   color: red;
   border: 3px solid red;
   border-radius: 10px;
@@ -80,7 +80,7 @@ const Battery = styled.div`
 `;
 
 const BatteryLevel = styled.div`
-  width: 40px;
+  width: 30%;
   height: 100%;
   background-color: greenyellow;
   box-shadow: 0px 0px 5px greenyellow;

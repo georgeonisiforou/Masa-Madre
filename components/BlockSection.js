@@ -21,8 +21,8 @@ const Content = styled.div`
     content: "";
     position: absolute;
     bottom: -100px;
-    left: 0;
-    width: 100%;
+    left: 25%;
+    width: 50%;
     height: 5px;
     background-color: var(--accent-color);
     border-radius: 5px;
@@ -32,8 +32,8 @@ const Content = styled.div`
     content: "";
     position: absolute;
     top: -100px;
-    left: 0;
-    width: 100%;
+    left: 25%;
+    width: 50%;
     height: 5px;
     background-color: var(--accent-color);
     border-radius: 5px;
