@@ -125,7 +125,7 @@ const PizzaCard = styled.div`
     padding: 0 0 16px 0;
     justify-content: flex-start;
     gap: 8px;
-    height: 300px;
+    height: 320px;
   }
 
   /* @media (max-width: 700px) {
