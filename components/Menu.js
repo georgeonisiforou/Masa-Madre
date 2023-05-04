@@ -150,7 +150,7 @@ const Price = styled.div`
   bottom: 16px;
   right: 16px;
   z-index: 2;
-  border: 2px solid var(--comp-color);
+  border: 1px dotted var(--accent-color);
 
   @media (max-width: 768px) {
     bottom: 8px;
