@@ -31,7 +31,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--bg-color);
+  color: var(--text-color);
   font-size: clamp(20px, 2vw, 32px);
   z-index: 3;
   padding: 16px;

@@ -9,11 +9,11 @@
   --comp-color: #9ca777;
   --text-color: rgba(33, 33, 33, 0.9); */
 
-  --accent-color: #f4d19b;
-  --bg-color: #f9f3df;
-  --comp-color: #fdfce5;
-  --text-color: rgba(33, 33, 33, 0.9);
-  --extra-color: #d7e9f7;
+  --accent-color: #ff9a00;
+  --bg-color: #212121;
+  --comp-color: #323232;
+  --text-color: #f0f0f0;
+  --extra-color: #0d7377;
 }
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 

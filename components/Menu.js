@@ -34,27 +34,15 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 32px;
-  gap: 32px;
-`;
-
-const PizzaCardOverlay = styled.div`
-  width: 100%;
-  height: 100%;
-  /* background: rgba(0, 0, 0, 0.2); */
-  background-color: #fafafa;
-
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.5s ease;
+  padding: 32px 0;
+  gap: 16px;
 `;
 
 const PizzaName = styled.div`
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 500;
   position: relative;
+  min-height: 50px;
 
   &::after {
     content: "";
@@ -79,15 +67,8 @@ const PizzaName = styled.div`
 const PizzaIcons = styled.div`
   display: flex;
   gap: 16px;
-  position: absolute;
-  bottom: 28px;
-  right: 130px;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    bottom: 16px;
-    left: 16px;
-  }
+  min-height: 30px;
+  align-self: center;
 `;
 
 const Vegan = styled(FaLeaf)`
@@ -103,30 +84,23 @@ const Spicy = styled(GiChiliPepper)`
 `;
 
 const PizzaCard = styled.div`
-  /* flex: 1; */
-  height: 350px;
+  flex: 1;
+  height: 650px;
+  max-width: 175px;
+  min-width: 175px;
   width: 100%;
-  min-width: 300px;
-  max-width: 600px;
+  background-color: var(--comp-color);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 16px;
-  padding: 16px 16px 32px 16px;
+  padding: 16px 8px 8px 8px;
   overflow: hidden;
-  border: 1px solid var(--accent-color);
-  border-radius: 5px;
+  border-radius: 12px;
   position: relative;
-  /* box-shadow: 1px 1px 5px rgba(10, 10, 10, 0.6),
-    -1px 0px 5px rgba(10, 10, 10, 0.6); */
-
-  @media (max-width: 768px) {
-    padding: 0 0 16px 0;
-    justify-content: flex-start;
-    gap: 8px;
-    height: 300px;
-  }
+  box-shadow: 1px 1px 5px rgba(10, 10, 10, 0.6),
+    -1px 0px 5px rgba(10, 10, 10, 0.6);
 
   /* @media (max-width: 700px) {
     height: 600px;
@@ -140,73 +114,45 @@ const PizzaCard = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: clamp(20px, 2vw, 25px);
-  font-weight: 500;
-  background-color: var(--extra-color);
-  border-radius: 5px;
-  padding: 8px;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  padding: 5px;
   color: var(--text-color);
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 2;
-  border: 2px solid var(--comp-color);
-
-  @media (max-width: 768px) {
-    bottom: 8px;
-    right: 8px;
-    padding: 3px;
-  }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const PizzaImage = styled.div`
   position: relative;
   flex: 1;
-  height: 100%;
-  max-height: 300px;
-  min-width: 280px;
+  height: 400px;
+  min-height: 276px;
+  width: 100%;
   border-radius: 5px;
   overflow: hidden;
   z-index: 3;
-
-  @media (max-width: 768px) {
-    max-height: 150px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    min-width: 350px;
-  }
 `;
 
 const PizzaIngredients = styled.div`
   display: flex;
   gap: 24px;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-start;
   flex: 1;
-  height: 80%;
-  min-width: 270px;
-  padding: 16px 0;
-  text-align: right;
-  z-index: 3;
-  font-size: clamp(16px, 3vw, 20px);
+  /* min-width: 150px; */
+  width: 100%;
 
-  @media (max-width: 768px) {
-    height: 120px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 0;
-    padding-bottom: 0;
-    gap: 16px;
-  }
+  z-index: 3;
+  font-size: 16px;
 `;
 
 const IngredientsText = styled.div`
-  max-width: 20ch;
-
-  @media (max-width: 768px) {
-    max-width: 40ch;
-  }
+  min-height: 90px;
 `;
 
 const Menu = () => {
@@ -228,7 +174,6 @@ const Menu = () => {
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <PizzaCardOverlay />
                 <PizzaImage>
                   <Image
                     alt="pizza"
@@ -242,13 +187,14 @@ const Menu = () => {
                 </PizzaImage>
                 <PizzaIngredients>
                   <PizzaName>{item.name}</PizzaName>
+
                   <IngredientsText>{item.ingredients}</IngredientsText>
+                  <PizzaIcons>
+                    {item.spicy ? <Spicy /> : null}
+                    {item.vegan ? <Vegan /> : null}
+                  </PizzaIcons>
+                  <Price>{`€ ${item.price}`}</Price>
                 </PizzaIngredients>
-                <PizzaIcons>
-                  {item.spicy ? <Spicy /> : null}
-                  {item.vegan ? <Vegan /> : null}
-                </PizzaIcons>
-                <Price>{`€ ${item.price}`}</Price>
               </PizzaCard>
             );
           })}

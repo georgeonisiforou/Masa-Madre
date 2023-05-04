@@ -13,7 +13,7 @@ const Container = styled.div`
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: var(--accent-color);
+  background-color: var(--bg-color);
   padding: 32px;
 `;
 
