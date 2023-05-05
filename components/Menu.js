@@ -41,7 +41,6 @@ const Container = styled.div`
 const PizzaCardOverlay = styled.div`
   width: 100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, 0.2); */
   background-color: #fafafa;
 
   z-index: 2;
@@ -103,7 +102,6 @@ const Spicy = styled(GiChiliPepper)`
 `;
 
 const PizzaCard = styled.div`
-  /* flex: 1; */
   height: 350px;
   width: 100%;
   min-width: 300px;
@@ -116,10 +114,10 @@ const PizzaCard = styled.div`
   padding: 16px 16px 32px 16px;
   overflow: hidden;
   border: 1px solid var(--accent-color);
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
-  /* box-shadow: 1px 1px 5px rgba(10, 10, 10, 0.6),
-    -1px 0px 5px rgba(10, 10, 10, 0.6); */
+  box-shadow: 1px 1px 8px rgba(150, 150, 150, 0.6),
+    -1px 0px 8px rgba(150, 150, 150, 0.6);
 
   @media (max-width: 768px) {
     padding: 0 0 16px 0;
@@ -127,10 +125,6 @@ const PizzaCard = styled.div`
     gap: 8px;
     height: 320px;
   }
-
-  /* @media (max-width: 700px) {
-    height: 600px;
-  } */
 
   &:hover ${PizzaName} {
     &::after {
@@ -143,7 +137,7 @@ const Price = styled.div`
   font-size: clamp(20px, 2vw, 25px);
   font-weight: 500;
   background-color: var(--extra-color);
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 8px;
   color: var(--text-color);
   position: absolute;
@@ -224,7 +218,6 @@ const Menu = () => {
                 as={motion.div}
                 whileHover={{
                   scale: 1.01,
-                  // backgroundColor: "rgba(37,37,37,0.2)",
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >

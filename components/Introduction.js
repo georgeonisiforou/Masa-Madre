@@ -27,7 +27,8 @@ const LeftSection = styled.div`
 `;
 
 const TextContent = styled.div`
-  max-width: 30ch;
+  /* max-width: 30ch; */
+  width: clamp(300px, 50%, 500px);
 
   @media (max-width: 768px) {
     padding: 48px 0;

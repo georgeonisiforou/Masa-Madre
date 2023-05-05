@@ -14,11 +14,8 @@ const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  /* margin-top: 64px;
-  margin-bottom: 64px; */
   flex-wrap: wrap-reverse;
   background-color: var(--comp-color);
-  /* padding: 32px 0; */
 `;
 
 const LeftSection = styled.div`
@@ -96,6 +93,12 @@ const GoogleMapsIcon = styled(SiGooglemaps)`
   transition: all 0.3s ease;
 `;
 
+const MapsLink = styled(Link)`
+  color: var(--text-color);
+  min-width: 280px;
+  transition: all 0.3s ease;
+`;
+
 const GoogleMap = styled.div`
   font-size: clamp(16px, 2vw, 24px);
   position: relative;
@@ -120,16 +123,14 @@ const GoogleMap = styled.div`
     scale: 1.1;
     color: var(--accent-color);
   }
+
+  &:hover ${MapsLink} {
+    transform: translateY(-2px);
+    text-decoration: underline;
+  }
 `;
 
 const PinIcon = styled(BsPinMap)``;
-
-const MapsLink = styled(Link)`
-  color: var(--text-color);
-  min-width: 280px;
-`;
-
-const FoodTruckIcon = styled(GiFoodTruck)``;
 
 const TitleLine = styled.div`
   width: 700px;

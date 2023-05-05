@@ -8,8 +8,6 @@ const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  /* margin-top: 64px;
-  margin-bottom: 64px; */
   flex-wrap: wrap-reverse;
   background-color: var(--comp-color);
   padding: 64px 0;

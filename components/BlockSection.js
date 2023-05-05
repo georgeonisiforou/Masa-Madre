@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
@@ -44,7 +45,13 @@ const BlockSection = () => {
   return (
     <>
       <Container>
-        <Content>
+        <Content
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           Our menu consists of 10 pizza options, sides and desserts, because we
           focus on what we&apos;re good at to ensure quality Neopoletana pizza
           is in front of you every time.
