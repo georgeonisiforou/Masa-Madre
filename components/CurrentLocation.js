@@ -8,6 +8,7 @@ import { BsPinMap } from "react-icons/bs";
 import { GiFoodTruck } from "react-icons/gi";
 import { IoTimeOutline, IoCalendarOutline } from "react-icons/io5";
 import Link from "next/link";
+import { useWindowSize } from "@/util/hooks/useWindowSize";
 
 const Container = styled.div`
   width: 100%;
@@ -139,6 +140,7 @@ const TitleLine = styled.div`
 `;
 
 const CurrentLocation = ({ locationData }) => {
+  const { width } = useWindowSize();
   const openDateTime = locationData[0].openTime;
   const closeDateTime = locationData[0].closeTime;
 
@@ -200,7 +202,7 @@ const CurrentLocation = ({ locationData }) => {
           </Today>
 
           <Address>{locationData[0].address}</Address>
-          <GoogleMap>
+          <GoogleMap width={width}>
             <GoogleMapsIcon />
             Google Maps{" "}
             <MapsLink href={locationData[0].googleMapsUrl} target="_blank">

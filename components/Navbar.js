@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowSize } from "@/util/hooks/useWindowSize";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const Container = styled.div`
   width: 100%;
@@ -44,7 +45,7 @@ const NavLinksList = styled.ul`
 const NavLinksMob = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 24px;
   justify-content: center;
   align-items: center;
 `;
@@ -121,7 +122,9 @@ const BurgerLine = styled.div`
 `;
 
 const MobMenu = styled.div`
+  border: 4px solid var(--accent-color);
   width: calc(100% - 32px);
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -131,7 +134,11 @@ const MobMenu = styled.div`
   top: 70px;
   left: 16px;
   z-index: 10;
-  background-color: var(--comp-color);
+  background: radial-gradient(
+    ellipse at top,
+    var(--extra-color),
+    var(--comp-color)
+  );
   padding: 32px 0;
   border-radius: 15px;
   font-size: 32px;
@@ -146,12 +153,14 @@ const Navbar = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [openMenu, setOpenMenu] = useState(false);
 
+  console.log(openMenu);
+
   const { width } = useWindowSize();
 
   return (
     <>
       <Container>
-        <LogoContainer>MASA MADRE Pizza</LogoContainer>
+        <LogoContainer>MASA MADRE</LogoContainer>
 
         {width < 768 ? (
           <HamburgerContainer
@@ -239,7 +248,10 @@ const Navbar = () => {
                       />
                     )}
 
-                    <NavLink href={`#${item.label}`}>
+                    <NavLink
+                      href={`#${item.label}`}
+                      onClick={() => setOpenMenu(!openMenu)}
+                    >
                       <span
                         style={{
                           position: "relative",
