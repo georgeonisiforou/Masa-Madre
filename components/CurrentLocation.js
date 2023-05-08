@@ -176,7 +176,7 @@ const CurrentLocation = ({ locationData }) => {
 
   return (
     <>
-      <Container>
+      <Container id="Location">
         <LeftSection>
           <ImageContainer>
             <Image

@@ -42,7 +42,6 @@ const PizzaCardOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fafafa;
-
   z-index: 2;
   position: absolute;
   top: 0;
@@ -138,7 +137,7 @@ const Price = styled.div`
   font-weight: 500;
   background-color: var(--extra-color);
   border-radius: 8px;
-  padding: 8px;
+  padding: 4px;
   color: var(--text-color);
   position: absolute;
   bottom: 16px;
@@ -206,7 +205,7 @@ const IngredientsText = styled.div`
 const Menu = () => {
   return (
     <>
-      <MainContainer>
+      <MainContainer id="Menu">
         <Title>
           MENU <SliceIcon />
         </Title>
