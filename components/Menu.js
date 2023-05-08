@@ -55,7 +55,7 @@ const PizzaName = styled.div`
     border-radius: 5px;
     background-color: var(--accent-color);
     transform: scale(0);
-    transform-origin: right;
+    transform-origin: left;
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
@@ -95,7 +95,7 @@ const PizzaCard = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  padding: 16px 8px 8px 8px;
+  padding: 8px 8px 8px 8px;
   overflow: hidden;
   border-radius: 12px;
   position: relative;
