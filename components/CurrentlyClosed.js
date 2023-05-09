@@ -122,7 +122,7 @@ const CurrentlyClosed = () => {
 
   return (
     <>
-      <Container id="Location">
+      <Container id="location">
         <LeftSection>
           <ImageContainer>
             <Image

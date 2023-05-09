@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowSize } from "@/util/hooks/useWindowSize";
 import { AiOutlineArrowUp } from "react-icons/ai";
-import PizzahutIcon from "./pizzahutIcon";
+import PizzahutIcon from "PizzahutIcon";
 
 const Container = styled.div`
   width: 100%;
