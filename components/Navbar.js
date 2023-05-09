@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowSize } from "@/util/hooks/useWindowSize";
 import { AiOutlineArrowUp } from "react-icons/ai";
+import PizzahutIcon from "./pizzahutIcon";
 
 const Container = styled.div`
   width: 100%;
@@ -39,6 +40,8 @@ const NavContainer = styled.div`
 
 const NavLinksList = styled.ul`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 `;
 
@@ -52,7 +55,7 @@ const NavLinksMob = styled.ul`
 
 const NavLinkItem = styled.li`
   list-style: none;
-  padding: 10px;
+  padding: 8px;
   border-radius: 18px;
   position: relative;
 `;
@@ -146,6 +149,7 @@ const MobMenu = styled.div`
 
 const Navbar = () => {
   const tabs = [
+    { id: "top", label: "Top" },
     { id: "location", label: "Location" },
     { id: "menu", label: "Menu" },
     { id: "contact", label: "Contact" },
@@ -187,14 +191,14 @@ const Navbar = () => {
                       transition={{ duration: 0.6, type: "spring" }}
                     />
                   )}
-                  <NavLink href={`#${item.label}`}>
+                  <NavLink href={`#${item.id}`}>
                     <span
                       style={{
                         position: "relative",
                         zIndex: 10,
                       }}
                     >
-                      {item.label}
+                      {item.label === "Top" ? <PizzahutIcon /> : item.label}
                     </span>
                   </NavLink>
                 </NavLinkItem>
@@ -247,7 +251,7 @@ const Navbar = () => {
                     )}
 
                     <NavLink
-                      href={`#${item.label}`}
+                      href={`#${item.id}`}
                       onClick={() => setOpenMenu(!openMenu)}
                     >
                       <span
@@ -256,7 +260,7 @@ const Navbar = () => {
                           zIndex: 10,
                         }}
                       >
-                        {item.label}
+                        {item.label === "Top" ? <PizzahutIcon /> : item.label}
                       </span>
                     </NavLink>
                   </NavLinkItem>

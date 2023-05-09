@@ -172,7 +172,7 @@ const Footer = () => {
   const currentDate = new Date().getFullYear();
   return (
     <>
-      <Container id="Contact">
+      <Container id="contact">
         <ContainerInner>
           <MainSection>
             <IconContainer>

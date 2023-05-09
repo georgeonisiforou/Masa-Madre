@@ -205,7 +205,7 @@ const IngredientsText = styled.div`
 const Menu = ({ pizzaData }) => {
   return (
     <>
-      <MainContainer id="Menu">
+      <MainContainer id="menu">
         <Title>
           MENU <SliceIcon />
         </Title>
