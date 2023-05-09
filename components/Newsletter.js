@@ -10,11 +10,11 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: var(--comp-color);
-  padding: 32px 16px;
+  padding: 32px 0;
 `;
 
 const Form = styled.div`
-  width: clamp(300px, 60%, 800px);
+  width: clamp(300px, 90%, 800px);
   padding: 16px;
   background-color: var(--accent-color);
   border-radius: 15px;
