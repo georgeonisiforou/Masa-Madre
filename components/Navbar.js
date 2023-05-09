@@ -8,7 +8,7 @@ import PizzahutIcon from "./PizzahutIcon";
 
 const Container = styled.div`
   width: 100%;
-  height: 60px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +54,7 @@ const NavLinksMob = styled.ul`
 
 const NavLinkItem = styled.li`
   list-style: none;
-  padding: 8px;
+  padding: 12px;
   border-radius: 18px;
   position: relative;
 `;

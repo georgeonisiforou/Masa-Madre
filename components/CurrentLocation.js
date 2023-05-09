@@ -67,8 +67,7 @@ const Today = styled.div`
 `;
 
 const Address = styled.div`
-  font-size: clamp(20px, 3vw, 32px);
-  font-style: italic;
+  font-size: clamp(20px, 2vw, 28px);
   text-align: center;
 `;
 
