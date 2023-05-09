@@ -202,7 +202,7 @@ const IngredientsText = styled.div`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ pizzaData }) => {
   return (
     <>
       <MainContainer id="Menu">
@@ -210,7 +210,7 @@ const Menu = () => {
           MENU <SliceIcon />
         </Title>
         <Container>
-          {menu.map((item, idx) => {
+          {pizzaData.map((item, idx) => {
             return (
               <PizzaCard
                 key={idx}
@@ -240,7 +240,7 @@ const Menu = () => {
                   {item.spicy ? <Spicy /> : null}
                   {item.vegan ? <Vegan /> : null}
                 </PizzaIcons>
-                <Price>{`€ ${item.price}`}</Price>
+                <Price>{`€ ${item.price}0`}</Price>
               </PizzaCard>
             );
           })}

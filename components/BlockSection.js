@@ -8,7 +8,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(20px, 2vw, 32px);
+
   background-color: var(--comp-color);
 `;
 
@@ -17,6 +18,7 @@ const Content = styled.div`
   text-align: center;
   position: relative;
   padding: 0 16px;
+  width: clamp(300px, 50%, 800px);
 
   &::after {
     content: "";

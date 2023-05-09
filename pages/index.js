@@ -12,7 +12,7 @@ import { createClient } from "next-sanity";
 import CurrentlyClosed from "@/components/CurrentlyClosed";
 import BlockSection from "@/components/BlockSection";
 
-export default function Home({ locationData }) {
+export default function Home({ locationData, pizzaData }) {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ export default function Home({ locationData }) {
           ) : (
             <CurrentLocation locationData={locationData} />
           )}
-          <Menu />
+          <Menu pizzaData={pizzaData} />
           <DoughVideo />
           <BlockSection />
           <Introduction />
@@ -53,10 +53,15 @@ export async function getStaticProps() {
     `*[_type=="location"]{address, "imageUrl": locationPhoto.asset->url, googleMapsUrl, content, openTime, closeTime}`
   );
 
+  const pizzaData = await client.fetch(
+    `*[_type=="pizza"]{name, ingredients, "photoUrl": pizzaPhoto.asset->url, price, spicy, vegan}`
+  );
+
   return {
     revalidate: 60,
     props: {
       locationData,
+      pizzaData,
     },
   };
 }

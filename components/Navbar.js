@@ -153,8 +153,6 @@ const Navbar = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [openMenu, setOpenMenu] = useState(false);
 
-  console.log(openMenu);
-
   const { width } = useWindowSize();
 
   return (
