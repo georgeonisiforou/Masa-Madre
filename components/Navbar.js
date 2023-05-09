@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWindowSize } from "@/util/hooks/useWindowSize";
-import PizzahutIcon from "./BlockSection";
+import PizzahutIcon from "./PizzahutIcon";
 
 const Container = styled.div`
   width: 100%;
