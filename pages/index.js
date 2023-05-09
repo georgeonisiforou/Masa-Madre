@@ -11,6 +11,7 @@ import CurrentLocation from "@/components/CurrentLocation";
 import { createClient } from "next-sanity";
 import CurrentlyClosed from "@/components/CurrentlyClosed";
 import BlockSection from "@/components/BlockSection";
+import Newsletter from "@/components/Newsletter";
 
 export default function Home({ locationData, pizzaData }) {
   return (
@@ -35,6 +36,7 @@ export default function Home({ locationData, pizzaData }) {
           <Introduction />
           <Services />
           <Sourdough />
+          <Newsletter />
         </Layout>
       </>
     </>
